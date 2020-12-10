@@ -1,3 +1,2 @@
-var readlineSync = require('readline-sync');
-var userInput = readlineSync.question("Hey man, what's your name ?");
-console.log("Welcome, " + userInput);
+var name = "Aakash Deep";
+console.log("Welcome, " + name);
