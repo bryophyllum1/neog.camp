@@ -1,39 +1,44 @@
 var readline= require('readline-sync');
+const chalk = require('chalk');
+var questions = [ {
+  quest : "Who is my favourite superhero?",
+  ans : "BATMAN",
+}, {
+  quest : "What is the name of my dream car?",
+  ans : "CENTODIECI",
+}, {
+  quest : "Do I have a pet?",
+  ans : "NO",
+}, {
+  quest : "How many brothers do I have?",
+  ans : "1",
+}, {
+  quest : "What is my favourite color?",
+  ans : "RED",
+}, {
+  quest : "What is my favourite movie?",
+  ans : "PURSUIT OF HAPPINESS",
+}, {
+  quest : "What is my last name?",
+  ans : "DEEP",
+}, {
+  quest : "What is the name of my birth place?",
+  ans : "SITAMARHI",
+}]
 var highscore={
   name: "Aakash",
-  score: 0,
+  score:0,
 }
-var questions = [ {
-  quest : "Who is the Prime Minister of India?",
-  ans : "NARENDRA MODI",
-}, {
-  quest : "What is the name of the Chief Minister of Bihar ?",
-  ans : "NITISH KUMAR",
-}, {
-  quest : "Who stated the three laws of physics?",
-  ans : "ISSAC NEWTON",
-}, {
-  quest : "Is earth round?",
-  ans : "YES",
-}, {
-  quest : "Who is the father of computer?",
-  ans : "CHARLES BABBAGE",
-}, {
-  quest : "Who is the richest person in India?",
-  ans : "MUKESH AMBANI",
-}, {
-  quest : "Where is Hawa Mahal?",
-  ans : "JAIPUR",
-}, {
-  quest : "Who created Javascript?",
-  ans : "Brendan Eich",
-}]
-console.log("Welcome to the game --- Do ya have general knowledge?------");
-console.log("My name is Aakash and this game is to check your general knowledge.");
+var readline= require('readline-sync');
 
-console.log("So, the game is of 4 levels. Each level contains two questions. And if you answer a question correctly, then it will increase your score by one. If you answer atleast one correctly then only you can go to the next level.")
-var name=readline.question("Enter your name: ");
-console.log("let's start, "+name+" ----------------");
+console.log(chalk.blue("Welcome to the game --- Do ya know about me?------"));
+console.log("My name is "+ chalk.red("Aakash")+" and this game is about me..");
+
+console.log(chalk.green("So, the game is of 4 levels."));
+console.log(chalk.green(" Each level contains two questions. And if you answer a question correctly, then it will increase your score by one."))
+console.log(chalk.green(" If you answer atleast one correctly then only you can go to the next level."));
+var name=readline.question(chalk.cyan("Enter your name: "));
+console.log(chalk.bgGray("let's start, "+name+" ----------------"));
 
 while(true){
 var score=0;
@@ -43,12 +48,13 @@ console.log("-------Level "+ (i+1) + "-------")
   for(var j=0; j<2; j++){
     answer=readline.question(questions[i*2+j].quest)
     if(answer.toUpperCase()===questions[i*2+j].ans){
-      console.log("Right!");
+      console.log(chalk.bold.green("Right!"));
       score++;
       console.log("your current score is: "+ score);
     }
     else{
-      console.log("Wrong!");
+      console.log(chalk.bold.red("Wrong!"));
+      console.log("This is the right answer: "+ questions[i*2 +j].ans);
             console.log("your current score is: "+ score);
 
     }
